@@ -74,12 +74,7 @@ for i in apiList_dic:
         result = apitest(paramRequestType, apiUrl, querystring, headers)
         print("api请求获取结果======",result)
         print("预期结果============",totalResult)
-
-        df3=pd.DataFrame({'Data3':[14,15,16,17,18]})
-        writer = pd.ExcelWriter('test.xlsx')
-        df3.to_excel(writer,sheet_name='Data3',index=False)
-
-        # 请求结果处理-1。回写入api测试文件，显示测试统计结果
+        # 请求结果处理。回写入api测试文件，显示测试统计结果
         for i in result:
             print("预约用户姓名： ", i['realName'])
 
