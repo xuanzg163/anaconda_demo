@@ -19,6 +19,7 @@ headers = {
 
 # 发起测试请求
 def apitest(type, url, querystring, headers):
+    """添加一个注释"""
     # 响应信息
     response = requests.request(type, url, headers=headers, params=querystring)
     # 将结果转换json串
