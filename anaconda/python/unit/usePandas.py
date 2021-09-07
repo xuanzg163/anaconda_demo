@@ -22,7 +22,7 @@ df = pd.DataFrame({'Name': ['A', 'B', 'C', 'D'],
                    'Age': [10, 0, 30, 50]})
 # df = pd.DataFrame()
 # 使用XlsxWriter创建一个写引擎
-writer = pd.ExcelWriter('demo.xlsx', engine='xlsxwriter')
+writer = pd.ExcelWriter('../../../venv/demo.xlsx', engine='xlsxwriter')
 # 将dataframe转换成XlsxWriter对象
 # df.to_excel(writer, sheet_name='Sheet1', index=False)
 # writer.save()

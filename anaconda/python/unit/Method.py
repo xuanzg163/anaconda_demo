@@ -4,8 +4,17 @@ import requests
 from unit import logger
 import json
 
-
+# 封装参数体
 class BaseMethod:
+    """
+    封装api请求参数
+    @:param method_type 请求类型
+    @:param url 请求地址
+    @:param header 请求头
+    @:param timeout 超时时间 可选
+    @:param datas 请求体参数
+    @:param method_exit
+    """
     def __init__(self, method_type, url, header, timeout=15, datas=None, method_exit=True):
         if not datas:
             datas = {}
@@ -16,8 +25,12 @@ class BaseMethod:
         self.timeout = timeout
         self.method_exit = method_exit
 
+# api自动请求工具
 class Test_url(BaseMethod):
-
+    """
+    这个类是用来测试接口的类
+    @:param BaseMethod 请求体，这是必传的参数
+    """
     def __new__(cls, *args, **kwargs):
         cls.logger = logger
         logger.info("will begin use Test_url method")
@@ -30,6 +43,7 @@ class Test_url(BaseMethod):
         except Exception as e:
             logger.error(e.__str__())
             if self.method_exit:
+                # exit程序终止函数
                 exit()
         else:
             if rv.status_code != 200:
